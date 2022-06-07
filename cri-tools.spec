@@ -13,11 +13,11 @@
 
 Name:          cri-tools
 Version:       1.22.0
-Release:       1
+Release:       2
 Summary:       CLI and validation tools for Container Runtime Interface
 License:       ASL 2.0
 URL:           https://%{goipath}
-Source0:       %url/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:       %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:       https://github.com/cpuguy83/go-md2man/archive/v1.0.10.tar.gz
 ExclusiveArch: %{?go_arches:%{go_arches}}%{!?go_arches:%{ix86} x86_64 aarch64 %{arm} ppc64le s390x}
 BuildRequires: golang, glibc-static, git
@@ -59,5 +59,8 @@ install -p -m 644 docs/crictl.1 %{buildroot}%{_mandir}/man1
 %{_mandir}/man1/crictl*
 
 %changelog
+* Tue Jun 07 2022 fushanqing <fushanqing@kylinos.cn> - 1.22.0-2
+- update Source0
+
 * Mon Mar 21 2022 fushanqing <fushanqing@kylinos.cn> - 1.22.0-1
 - Init Package
