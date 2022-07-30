@@ -12,8 +12,8 @@
 %global built_tag v%{version}
 
 Name:          cri-tools
-Version:       1.22.0
-Release:       2
+Version:       1.24.2
+Release:       1
 Summary:       CLI and validation tools for Container Runtime Interface
 License:       ASL 2.0
 URL:           https://%{goipath}
@@ -59,6 +59,9 @@ install -p -m 644 docs/crictl.1 %{buildroot}%{_mandir}/man1
 %{_mandir}/man1/crictl*
 
 %changelog
+* Sat Jul 30 2022 tianlijing <tianlijing@kylinos.cn> - 1.24.2-1
+- update to 1.24.2
+
 * Tue Jun 07 2022 fushanqing <fushanqing@kylinos.cn> - 1.22.0-2
 - update Source0
 
