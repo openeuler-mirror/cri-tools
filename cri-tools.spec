@@ -13,7 +13,7 @@
 
 Name:          cri-tools
 Version:       1.22.0
-Release:       2
+Release:       3
 Summary:       CLI and validation tools for Container Runtime Interface
 License:       ASL 2.0
 URL:           https://%{goipath}
@@ -31,6 +31,9 @@ Provides:      crictl = %{version}-%{release}
 tar -xf %SOURCE1
 
 %build
+%if "%toolchain" == "clang"
+	export LDFLAGS=
+%endif
 GO_MD2MAN_PATH="$(pwd)%{_bindir}"
 mkdir -p _build/bin $GO_MD2MAN_PATH
 cd go-md2man-*
@@ -59,6 +62,9 @@ install -p -m 644 docs/crictl.1 %{buildroot}%{_mandir}/man1
 %{_mandir}/man1/crictl*
 
 %changelog
+* Tue Jun 27 2023 yoo <sunyuechi@iscas.ac.cn> - 1.22.0-3
+- fix clang build error
+
 * Tue Jun 07 2022 fushanqing <fushanqing@kylinos.cn> - 1.22.0-2
 - update Source0
 
